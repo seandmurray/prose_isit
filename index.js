@@ -15,7 +15,7 @@ exports.anArray = (item) => {
 	return Array.isArray(item);
 };
 
-module.exports.notArray = (item) => {
+exports.notArray = (item) => {
 	return exports.anArray(item) ? false : true;
 };
 

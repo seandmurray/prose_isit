@@ -2,10 +2,7 @@
 
 Make writing node easier, prettier and less error prone. Writes and reads more like prose
 
-```javascript
-// Example
-if(isit.nil(somevar)) console.log('Nill is anything that is null or undefined!');
-```
+A utility to help discover that type a variable is or is not.
 
 ## Notes
 
