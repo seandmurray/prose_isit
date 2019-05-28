@@ -1,7 +1,7 @@
 {
-  "name": "@prose/isit",
-  "version": "1.0.1",
-  "description": "Make writing node easier, prettier and less error prone. Writes and reads more like prose",
+  "name": "prose_isit",
+  "version": "1.0.2",
+  "description": "A type Utility. Make writing node easier, prettier and less error prone. Writes and reads more like prose",
   "license": "MIT",
   "main": "index.js",
   "keywords": [

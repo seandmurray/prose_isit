@@ -1,6 +1,6 @@
 # Prose/Isit
 
-Make writing node easier, prettier and less error prone. Writes and reads more like prose
+A type Utility. Make writing node easier, prettier and less error prone. Writes and reads more like prose
 
 A utility to help discover that type a variable is or is not.
 
@@ -13,7 +13,7 @@ This util considers an Array as not an Object, so isit.anObject(['somearray']) i
 ## Usage
 
 ```javascript
-const isit = require('@prose/isit');
+const isit = require('prose_isit');
 
 isit.anArray(obj); //True if array.
 isit.notArray(obj); //True of not an array, undefined or null.
