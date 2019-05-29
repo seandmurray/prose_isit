@@ -1,5 +1,8 @@
 # Prose/Isit
 
+Copyright (c) 2019 Seán D. Murray
+SEE MIT LICENSE FILE
+
 A type Utility. Make writing node easier, prettier and less error prone. Writes and reads more like prose
 
 A utility to help discover that type a variable is or is not.
