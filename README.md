@@ -18,6 +18,9 @@ This util considers an Array as not an Object, so isit.anObject(['somearray']) i
 ```javascript
 const isit = require('prose_isit');
 
+isit.not(true); // return false, use to replace easily misread !.
+isit.not(false); // return true, use to replace easily misread !.
+
 isit.anArray(obj); //True if array.
 isit.notArray(obj); //True of not an array, undefined or null.
 

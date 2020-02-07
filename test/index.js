@@ -237,6 +237,16 @@ assert.equal(isit.notNil(false), true, 'Boolean is not nil');
 assert.equal(isit.notNil(true), true, 'Boolean is not nil');
 console.log('notNil testing success');
 
+// not
+assert.equal(isit.not(), true, 'Undefined is false so returns true');
+assert.equal(isit.not(null), true, 'null is false so returns true');
+assert.equal(isit.not(undefined), true, 'Undefined is false so returns true');
+assert.equal(isit.not(true), false, 'true will return false');
+assert.equal(isit.not(false), true, 'false will return true');
+assert.equal(isit.not(Boolean(true)), false, 'true will return false');
+assert.equal(isit.not(Boolean(false)), true, 'false will return true');
+console.log('not testing success');
+
 // Null
 assert.equal(isit.null(), false, 'Undefined is not null');
 assert.equal(isit.null(null), true, 'Null is null');

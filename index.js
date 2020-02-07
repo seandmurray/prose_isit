@@ -1,5 +1,5 @@
 /* jshint esversion: 6 */
-// Copyright (c) 2019 Seán D. Murray
+// Copyright (c) 2020 Seán D. Murray
 // SEE MIT LICENSE FILE
 const fs = require('fs');
 
@@ -7,7 +7,7 @@ const TYPEOF_BOOLEAN = typeof true;
 const TYPEOF_NUMBER = typeof 1;
 const TYPEOF_OBJECT = typeof {};
 const TYPEOF_STRING = typeof '';
-const TYPEOF_FUNCTION = typeof (() => {});
+const TYPEOF_FUNCTION = typeof(() => {});
 
 // Array
 exports.anArray = (item) => {
@@ -91,8 +91,7 @@ exports.notFunction = (item) => {
 exports.nil = (item) => {
 	if (exports.notDefined(item)) {
 		return true;
-	}
-	else if (exports.null(item)) {
+	} else if (exports.null(item)) {
 		return true;
 	}
 	return false;
@@ -101,6 +100,13 @@ exports.nil = (item) => {
 exports.notNil = (item) => {
 	return exports.nil(item) ? false : true;
 };
+
+// Intended to replace the ! which IMHO is very easy to miss.
+exports.not = (item) => {
+	if (exports.nil(item)) return true;
+	if (item) return false;
+	return true;
+}
 
 // Null
 exports.null = (item) => {
