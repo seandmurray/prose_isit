@@ -7,6 +7,8 @@ A type Utility. Make writing node easier, prettier and less error prone. Writes 
 
 A utility to help discover what type a variable is... or is not.
 
+Also a good replacement for lodash. No dependencies.
+
 ## Notes
 
 A new concept of *nil* has been added. Nil is anything that is either undefined or null.
@@ -23,6 +25,9 @@ isit.notNil(obj); //True if defined or not null.
 
 isit.not(true); // return false, use to replace easily misread !.
 isit.not(false); // return true, use to replace easily misread !.
+
+isit.empty(obj); //True for null, undefined, empty string '', empty array [], empty object {}. False for boolean, functions and files.
+isit.notEmpty(obj); //True non empty strings, array with values, object with key/values, booleans, files, functions and files.
 
 isit.anArray(obj); //True if array.
 isit.notArray(obj); //True of not an array, undefined or null.
@@ -50,4 +55,7 @@ isit.notPrimitive(obj); //True if not a primitive value: undefined, null, number
 
 isit.aString(obj); //True if a string.
 isit.notString(obj); //True if not a string.
+
+isit.aFile(obj); //True if a file that exists else false.
+isit.notFile(obj); //False if a file that exists else true;
 ```

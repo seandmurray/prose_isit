@@ -60,6 +60,21 @@ exports.notDefined = (item) => {
 	return exports.Defined(item) ? false : true;
 };
 
+// Empty
+exports.empty = (item) => {
+	if (exports.nil(item)) return true;
+	if (exports.aBoolean(item)) return false;
+	if (exports.aString(item) && (item.length == 0)) return true;
+	if (exports.anArray(item) && (item.length == 0)) return true;
+	if (exports.anObject(item) && (Object.keys(item).length == 0)) return true;
+	// a file, a function, anything else return false.
+	return false;
+}
+
+exports.notEmpty = (item) => {
+	return exports.empty(item) ? false : true;
+};
+
 // File
 exports.aFile = (item) => {
 	if (exports.aString(item) && fs.existsSync(item)) {

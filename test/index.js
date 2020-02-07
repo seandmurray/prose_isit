@@ -14,7 +14,9 @@ const testFileNotExists = path.join(os.tmpdir(), 'isit_test_file_not_exists.tmp'
 const testFunction = () => {};
 const testNum = 123;
 const testObj = { "a": "b" };
+const testObjEmpty = {};
 const testString = 'avalue';
+const testStringEmpty = '';
 
 // anArray
 assert.equal(isit.anArray(), false, 'Undefined is not an array');
@@ -141,6 +143,40 @@ assert.equal(isit.notDefined(testString), false, 'String is not defined');
 assert.equal(isit.notDefined(false), false, 'Boolean is not defined');
 assert.equal(isit.notDefined(true), false, 'Boolean is not defined');
 console.log('notDefined testing success');
+
+// empty
+assert.equal(isit.empty(), true, 'Undefined is empty');
+assert.equal(isit.empty(null), true, 'null is empty');
+assert.equal(isit.empty(undefined), true, 'Undefined is empty');
+assert.equal(isit.empty(true), false, 'boolean is not empty');
+assert.equal(isit.empty(false), false, 'boolean is not empty');
+assert.equal(isit.empty(booleanObjTrue), false, 'boolean is not empty');
+assert.equal(isit.empty(booleanObjFalse), false, 'boolean is not empty');
+assert.equal(isit.empty(testStringEmpty), true, 'Empty string is empty');
+assert.equal(isit.empty(testString), false, 'Not emtpty string is not empty');
+assert.equal(isit.empty(testArrayEmpty), true, 'Emtpty array is empty');
+assert.equal(isit.empty(testArray), false, 'Not emtpty array is not empty');
+assert.equal(isit.empty(testObjEmpty), true, 'Emtpty object is empty');
+assert.equal(isit.empty(testObj), false, 'Not emtpty object is not empty');
+assert.equal(isit.empty(testFunction), false, 'Function is not empty');
+console.log('empty testing success');
+
+// notEmpty
+assert.equal(isit.notEmpty(), false, 'Undefined is empty');
+assert.equal(isit.notEmpty(null), false, 'null is empty');
+assert.equal(isit.notEmpty(undefined), false, 'Undefined is empty');
+assert.equal(isit.notEmpty(false), true, 'boolean is not empty');
+assert.equal(isit.notEmpty(true), true, 'boolean is not empty');
+assert.equal(isit.notEmpty(booleanObjTrue), true, 'boolean is not empty');
+assert.equal(isit.notEmpty(booleanObjFalse), true, 'boolean is not empty');
+assert.equal(isit.notEmpty(testStringEmpty), false, 'notEmpty string is empty');
+assert.equal(isit.notEmpty(testString), true, 'Not emtpty string is not empty');
+assert.equal(isit.notEmpty(testArrayEmpty), false, 'Emtpty array is empty');
+assert.equal(isit.notEmpty(testArray), true, 'Not emtpty array is not empty');
+assert.equal(isit.notEmpty(testObjEmpty), false, 'Emtpty object is empty');
+assert.equal(isit.notEmpty(testObj), true, 'Not emtpty object is not empty');
+assert.equal(isit.notEmpty(testFunction), true, 'Function is not empty');
+console.log('notEmpty testing success');
 
 // aFile
 fs.writeFileSync(testFileExists, 'testfileexists');
