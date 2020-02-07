@@ -5,7 +5,7 @@ SEE MIT LICENSE FILE
 
 A type Utility. Make writing node easier, prettier and less error prone. Writes and reads more like prose
 
-A utility to help discover that type a variable is or is not.
+A utility to help discover what type a variable is... or is not.
 
 ## Notes
 
