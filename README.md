@@ -18,6 +18,9 @@ This util considers an Array as not an Object, so isit.anObject(['somearray']) i
 ```javascript
 const isit = require('prose_isit');
 
+isit.nil(obj); //True if undefined or null.
+isit.notNil(obj); //True if defined or not null.
+
 isit.not(true); // return false, use to replace easily misread !.
 isit.not(false); // return true, use to replace easily misread !.
 
@@ -32,9 +35,6 @@ isit.notDefined(obj); //True if undefined, false if null.
 
 isit.aFunction (obj); //True if a function.
 isit.notFunction (obj); //True if not a function.
-
-isit.nil(obj); //True if undefined or null.
-isit.notNil(obj); //True if defined or not null.
 
 isit.null(obj); //True if null.
 isit.notNull(obj); //True if undefined or not null.
