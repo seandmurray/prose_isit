@@ -5,6 +5,7 @@ const path = require('path');
 
 const isit = require('../index');
 
+
 const booleanObjFalse = new Boolean(false);
 const booleanObjTrue = new Boolean(true);
 const testArray = [1, 2, 3, 4];
@@ -255,6 +256,11 @@ assert.equal(isit.nil(testObj), false, 'Object is not nil');
 assert.equal(isit.nil(testString), false, 'String is not nil');
 assert.equal(isit.nil(false), false, 'Boolean is not nil');
 assert.equal(isit.nil(true), false, 'Boolean is not nil');
+const one=null;
+const two=undefined;
+const three='three';
+assert.equal(isit.nil(one, two), true, 'All items are nil');
+assert.equal(isit.nil(one, three), false, 'At least one item is not nil');
 console.log('Nil testing success');
 
 // notNil
@@ -271,6 +277,8 @@ assert.equal(isit.notNil(testObj), true, 'Object is not nil');
 assert.equal(isit.notNil(testString), true, 'String is not nil');
 assert.equal(isit.notNil(false), true, 'Boolean is not nil');
 assert.equal(isit.notNil(true), true, 'Boolean is not nil');
+assert.equal(isit.notNil(one, two), false, 'All items are nil');
+assert.equal(isit.notNil(one, three), true, 'At least one item is not nil');
 console.log('notNil testing success');
 
 // not

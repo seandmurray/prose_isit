@@ -76,9 +76,7 @@ exports.notEmpty = (item) => {
 };
 
 // File
-exports.aFile = (item) => {
-	if (exports.aString(item) && fs.existsSync(item)) {
-		return true;
+exports.aFile = (item) => { if (exports.aString(item) && fs.existsSync(item)) { return true;
 	}
 	return false;
 };
@@ -103,7 +101,7 @@ exports.notFunction = (item) => {
 };
 
 // Nil = undefined or null
-exports.nil = (item) => {
+function _nil (item) {
 	if (exports.notDefined(item)) {
 		return true;
 	} else if (exports.null(item)) {
@@ -112,13 +110,20 @@ exports.nil = (item) => {
 	return false;
 };
 
-exports.notNil = (item) => {
-	return exports.nil(item) ? false : true;
+exports.nil = (...items) => {
+	for (const item of items) {
+		if (exports.not(_nil(item))) return false;
+	}
+	return true;
+}
+
+exports.notNil = (...items) => {
+	return exports.nil(...items) ? false : true;
 };
 
 // Intended to replace the ! which IMHO is very easy to miss.
 exports.not = (item) => {
-	if (exports.nil(item)) return true;
+	if (_nil(item)) return true;
 	if (item) return false;
 	return true;
 }

@@ -20,8 +20,8 @@ This util considers an Array as not an Object, so isit.anObject(['somearray']) i
 ```javascript
 const isit = require('prose_isit');
 
-isit.nil(obj); //True if undefined or null.
-isit.notNil(obj); //True if defined or not null.
+isit.nil(obj1, obj2, obj3); //True if all inputs are undefined or null.
+isit.notNil(obj1, obj2, obj3); //True if all inputs are NOT undefined or null.
 
 isit.not(true); // return false, use to replace easily misread !.
 isit.not(false); // return true, use to replace easily misread !.
