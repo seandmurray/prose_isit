@@ -9,8 +9,6 @@ A utility to help discover what type a variable is... or is not.
 
 ## Notes
 
-A new concept of *nil* has been added. Nil is anything that is either undefined or null.
-
 This util considers an Array as not an Object, so isit.anObject(['somearray']) is false. However isit.anArray(['somearray']) is true.
 
 ## Usage
