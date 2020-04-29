@@ -2,6 +2,7 @@
 // Copyright (c) 2020 Seán D. Murray
 // SEE MIT LICENSE FILE
 const fs = require('fs');
+const is = require('prose_is');
 
 const TYPEOF_BOOLEAN = typeof true;
 const TYPEOF_NUMBER = typeof 1;
@@ -9,21 +10,30 @@ const TYPEOF_OBJECT = typeof {};
 const TYPEOF_STRING = typeof '';
 const TYPEOF_FUNCTION = typeof(() => {});
 
-// Array
+/**
+True if item is an Array
+**/
 exports.anArray = (item) => {
-	if (exports.nil(item)) {
+	if (is.nil(item)) {
 		return false;
 	}
 	return Array.isArray(item);
 };
 
+/**
+False if item is an Array
+**/
 exports.notArray = (item) => {
 	return exports.anArray(item) ? false : true;
 };
 
-// Boolean
+/**
+True if item is a Boolean
+if primitiveOnly is false (default) then true only for primative/non-object boolean
+if primitiveOnly is true, then true for primative and object boolean
+**/
 exports.aBoolean = (item, primitiveOnly = false) => {
-	if (exports.nil(item)) {
+	if (is.nil(item)) {
 		return false;
 	}
 	if (typeof item === TYPEOF_BOOLEAN) {
@@ -44,25 +54,20 @@ exports.aBoolean = (item, primitiveOnly = false) => {
 	return false;
 };
 
+/**
+False if item is a Boolean
+if primitiveOnly is false (default) then flase only for primative/non-object boolean
+if primitiveOnly is true, then false for primative and object boolean
+**/
 exports.notBoolean = (item, primitiveOnly = false) => {
 	return exports.aBoolean(item, primitiveOnly) ? false : true;
 };
 
-// Defined
-exports.Defined = (item) => {
-	if (undefined === item) {
-		return false;
-	}
-	return true;
-};
-
-exports.notDefined = (item) => {
-	return exports.Defined(item) ? false : true;
-};
-
-// Empty
+/**
+True if item is nil (null or undefined), a boolean false or an emtpy: String, Array, Object
+**/
 exports.empty = (item) => {
-	if (exports.nil(item)) return true;
+	if (is.nil(item)) return true;
 	if (exports.aBoolean(item)) return false;
 	if (exports.aString(item) && (item.length == 0)) return true;
 	if (exports.anArray(item) && (item.length == 0)) return true;
@@ -71,23 +76,33 @@ exports.empty = (item) => {
 	return false;
 }
 
+/**
+False if item is not nil (null or undefined), a boolean true or not an emtpy: String, Array, Object
+**/
 exports.notEmpty = (item) => {
 	return exports.empty(item) ? false : true;
 };
 
-// File
+/**
+True if item is a file
+**/
 exports.aFile = (item) => { if (exports.aString(item) && fs.existsSync(item)) { return true;
 	}
 	return false;
 };
 
+/**
+True if item is a file
+**/
 exports.notFile = (item) => {
 	return exports.aFile(item) ? false : true;
 };
 
-// Function
+/**
+True if item is a function
+**/
 exports.aFunction = (item) => {
-	if (exports.nil(item)) {
+	if (is.nil(item)) {
 		return false;
 	}
 	if (typeof item === TYPEOF_FUNCTION) {
@@ -96,53 +111,18 @@ exports.aFunction = (item) => {
 	return false;
 };
 
+/**
+False if item is a function
+**/
 exports.notFunction = (item) => {
 	return exports.aFunction(item) ? false : true;
 };
 
-// Nil = undefined or null
-function _nil (item) {
-	if (exports.notDefined(item)) {
-		return true;
-	} else if (exports.null(item)) {
-		return true;
-	}
-	return false;
-};
-
-exports.nil = (...items) => {
-	for (const item of items) {
-		if (exports.not(_nil(item))) return false;
-	}
-	return true;
-}
-
-exports.notNil = (...items) => {
-	return exports.nil(...items) ? false : true;
-};
-
-// Intended to replace the ! which IMHO is very easy to miss.
-exports.not = (item) => {
-	if (_nil(item)) return true;
-	if (item) return false;
-	return true;
-}
-
-// Null
-exports.null = (item) => {
-	if (null === item) {
-		return true;
-	}
-	return false;
-};
-
-exports.notNull = (item) => {
-	return exports.null(item) ? false : true;
-};
-
-// Number
+/**
+True if item is a number
+**/
 exports.aNumber = (item) => {
-	if (exports.nil(item)) {
+	if (is.nil(item)) {
 		return false;
 	}
 	if (typeof item === TYPEOF_NUMBER) {
@@ -154,13 +134,18 @@ exports.aNumber = (item) => {
 	return false;
 };
 
+/**
+False if item is a number
+**/
 exports.notNumber = (item) => {
 	return exports.aNumber(item) ? false : true;
 };
 
-// Object
+/**
+True if item is an object
+**/
 exports.anObject = (item) => {
-	if (exports.nil(item)) {
+	if (is.nil(item)) {
 		return false;
 	}
 	if (typeof item === TYPEOF_OBJECT) {
@@ -172,25 +157,35 @@ exports.anObject = (item) => {
 	return false;
 };
 
+/**
+False if item is an object
+**/
 exports.notObject = (item) => {
 	return exports.anObject(item) ? false : true;
 };
 
-// Primative
+/**
+True if item is a primative: nil (nul or undefined), number, string or boolean (not object boolean).
+**/
 exports.aPrimitive = (item) => {
-	if (exports.nil(item) || exports.aNumber(item) || exports.aString(item) || exports.aBoolean(item, true)) {
+	if (is.nil(item) || exports.aNumber(item) || exports.aString(item) || exports.aBoolean(item, true)) {
 		return true;
 	}
 	return false;
 };
 
+/**
+False if item is a primative: nil (nul or undefined), number, string or boolean (not object boolean).
+**/
 exports.notPrimitive = (item) => {
 	return exports.aPrimitive(item) ? false : true;
 };
 
-// String
+/**
+True if item is a string
+**/
 exports.aString = (item) => {
-	if (exports.nil(item)) {
+	if (is.nil(item)) {
 		return false;
 	}
 	if (typeof item === TYPEOF_STRING) {
@@ -199,6 +194,9 @@ exports.aString = (item) => {
 	return false;
 };
 
+/**
+False if item is a string
+**/
 exports.notString = (item) => {
 	return exports.aString(item) ? false : true;
 };

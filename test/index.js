@@ -113,38 +113,6 @@ assert.equal(isit.notBoolean(false, true), false, 'Boolean is a boolean primitiv
 assert.equal(isit.notBoolean(true, true), false, 'Boolean is a boolean primitive');
 console.log('notBoolean primitive testing success');
 
-// Defined
-assert.equal(isit.Defined(), false, 'Undefined is not defined');
-assert.equal(isit.Defined(null), true, 'Null is not defined');
-assert.equal(isit.Defined(undefined), false, 'Undefined is not defined');
-assert.equal(isit.Defined(booleanObjFalse), true, 'Boolean object is not defined');
-assert.equal(isit.Defined(booleanObjTrue), true, 'Boolean object is not defined');
-assert.equal(isit.Defined(testArrayEmpty), true, 'Empty array is not defined');
-assert.equal(isit.Defined(testArray), true, 'Array is not defined');
-assert.equal(isit.Defined(testFunction), true, 'Function is not defined');
-assert.equal(isit.Defined(testNum), true, 'Number is not defined');
-assert.equal(isit.Defined(testObj), true, 'Object is not defined');
-assert.equal(isit.Defined(testString), true, 'String is not defined');
-assert.equal(isit.Defined(false), true, 'Boolean is not defined');
-assert.equal(isit.Defined(true), true, 'Boolean is not defined');
-console.log('Defined testing success');
-
-// notDefined
-assert.equal(isit.notDefined(), true, 'Undefined is defined');
-assert.equal(isit.notDefined(null), false, 'Null is not defined');
-assert.equal(isit.notDefined(undefined), true, 'Undefined is defined');
-assert.equal(isit.notDefined(booleanObjFalse), false, 'Boolean object is not defined');
-assert.equal(isit.notDefined(booleanObjTrue), false, 'Boolean object is not defined');
-assert.equal(isit.notDefined(testArrayEmpty), false, 'Empty array is not defined');
-assert.equal(isit.notDefined(testArray), false, 'Array is not defined');
-assert.equal(isit.notDefined(testFunction), false, 'Function is not defined');
-assert.equal(isit.notDefined(testNum), false, 'Number is not defined');
-assert.equal(isit.notDefined(testObj), false, 'Object is not defined');
-assert.equal(isit.notDefined(testString), false, 'String is not defined');
-assert.equal(isit.notDefined(false), false, 'Boolean is not defined');
-assert.equal(isit.notDefined(true), false, 'Boolean is not defined');
-console.log('notDefined testing success');
-
 // empty
 assert.equal(isit.empty(), true, 'Undefined is empty');
 assert.equal(isit.empty(null), true, 'null is empty');
@@ -241,87 +209,6 @@ assert.equal(isit.notFunction(testString), true, 'String is not a function');
 assert.equal(isit.notFunction(true), true, 'Boolean is not a function');
 assert.equal(isit.notFunction(true), true, 'Boolean is not a function');
 console.log('notFunction testing success');
-
-// Nil
-assert.equal(isit.nil(), true, 'Undefined is nil');
-assert.equal(isit.nil(null), true, 'Null is nil');
-assert.equal(isit.nil(undefined), true, 'Undefined is nil');
-assert.equal(isit.nil(booleanObjFalse), false, 'Boolean object is not nil');
-assert.equal(isit.nil(booleanObjTrue), false, 'Boolean object is not nil');
-assert.equal(isit.nil(testArrayEmpty), false, 'Empty array is not nil');
-assert.equal(isit.nil(testArray), false, 'Array is not nil');
-assert.equal(isit.nil(testFunction), false, 'Function is not nil');
-assert.equal(isit.nil(testNum), false, 'Number is not nil');
-assert.equal(isit.nil(testObj), false, 'Object is not nil');
-assert.equal(isit.nil(testString), false, 'String is not nil');
-assert.equal(isit.nil(false), false, 'Boolean is not nil');
-assert.equal(isit.nil(true), false, 'Boolean is not nil');
-const one=null;
-const two=undefined;
-const three='three';
-assert.equal(isit.nil(one, two), true, 'All items are nil');
-assert.equal(isit.nil(one, three), false, 'At least one item is not nil');
-console.log('Nil testing success');
-
-// notNil
-assert.equal(isit.notNil(), false, 'Undefined is nil');
-assert.equal(isit.notNil(null), false, 'Null is nil');
-assert.equal(isit.notNil(undefined), false, 'Undefined is nil');
-assert.equal(isit.notNil(booleanObjFalse), true, 'Boolean object is not nil');
-assert.equal(isit.notNil(booleanObjTrue), true, 'Boolean object is not nil');
-assert.equal(isit.notNil(testArrayEmpty), true, 'Empty array is not nil');
-assert.equal(isit.notNil(testArray), true, 'Array is not nil');
-assert.equal(isit.notNil(testFunction), true, 'Function is not nil');
-assert.equal(isit.notNil(testNum), true, 'Number is not nil');
-assert.equal(isit.notNil(testObj), true, 'Object is not nil');
-assert.equal(isit.notNil(testString), true, 'String is not nil');
-assert.equal(isit.notNil(false), true, 'Boolean is not nil');
-assert.equal(isit.notNil(true), true, 'Boolean is not nil');
-assert.equal(isit.notNil(one, two), false, 'All items are nil');
-assert.equal(isit.notNil(one, three), true, 'At least one item is not nil');
-console.log('notNil testing success');
-
-// not
-assert.equal(isit.not(), true, 'Undefined is false so returns true');
-assert.equal(isit.not(null), true, 'null is false so returns true');
-assert.equal(isit.not(undefined), true, 'Undefined is false so returns true');
-assert.equal(isit.not(true), false, 'true will return false');
-assert.equal(isit.not(false), true, 'false will return true');
-assert.equal(isit.not(Boolean(true)), false, 'true will return false');
-assert.equal(isit.not(Boolean(false)), true, 'false will return true');
-console.log('not testing success');
-
-// Null
-assert.equal(isit.null(), false, 'Undefined is not null');
-assert.equal(isit.null(null), true, 'Null is null');
-assert.equal(isit.null(undefined), false, 'Undefined is not null');
-assert.equal(isit.null(booleanObjFalse), false, 'Boolean object is not null');
-assert.equal(isit.null(booleanObjTrue), false, 'Boolean object is not null');
-assert.equal(isit.null(testArrayEmpty), false, 'Empty array is not null');
-assert.equal(isit.null(testArray), false, 'Array is not null');
-assert.equal(isit.null(testFunction), false, 'Function is not null');
-assert.equal(isit.null(testNum), false, 'Number is not null');
-assert.equal(isit.null(testObj), false, 'Object is not null');
-assert.equal(isit.null(testString), false, 'String is not null');
-assert.equal(isit.null(false), false, 'Boolean is not null');
-assert.equal(isit.null(true), false, 'Boolean is not null');
-console.log('Null testing success');
-
-// notNull
-assert.equal(isit.notNull(), true, 'Undefined is not null');
-assert.equal(isit.notNull(null), false, 'Null is null');
-assert.equal(isit.notNull(undefined), true, 'Undefined is not null');
-assert.equal(isit.notNull(booleanObjFalse), true, 'Boolean object is not null');
-assert.equal(isit.notNull(booleanObjTrue), true, 'Boolean object is not null');
-assert.equal(isit.notNull(testArrayEmpty), true, 'Empty array is not null');
-assert.equal(isit.notNull(testArray), true, 'Array is not null');
-assert.equal(isit.notNull(testFunction), true, 'Function is not null');
-assert.equal(isit.notNull(testNum), true, 'Number is not null');
-assert.equal(isit.notNull(testObj), true, 'Object is not null');
-assert.equal(isit.notNull(testString), true, 'String is not null');
-assert.equal(isit.notNull(false), true, 'Boolean is not null');
-assert.equal(isit.notNull(true), true, 'Boolean is not null');
-console.log('notNull testing success');
 
 // aNumber
 assert.equal(isit.aNumber(), false, 'Undefined is not a number');
@@ -451,4 +338,4 @@ assert.equal(isit.notString(false), true, 'Boolean is not a string');
 assert.equal(isit.notString(true), true, 'Boolean is not a string');
 console.log('notString testing success');
 
-console.log('Isit testing done');
+console.log('prose_isit testing done');
