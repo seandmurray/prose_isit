@@ -1,6 +1,6 @@
 {
   "name": "prose_isit",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "A type Utility. Make writing node easier, prettier and less error prone. Writes and reads more like prose. Lodash alternative.",
   "license": "MIT",
   "main": "index.js",
