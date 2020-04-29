@@ -19,51 +19,51 @@ const isit = require('prose_isit');
 /**
 True if item is nil (null or undefined), a boolean false or an emtpy: String, Array, Object
 **/
-isit.empty(obj); //True for null, undefined, empty string '', empty array [], empty object {}. False for boolean, functions and files.
+isit.empty(obj);
 
 /**
 False if item is not nil (null or undefined), a boolean true or not an emtpy: String, Array, Object
 **/
-isit.notEmpty(obj); //True non empty strings, array with values, object with key/values, booleans, files, functions and files.
+isit.notEmpty(obj);
 
 /**
 True if item is an Array
 **/
-isit.anArray(obj); //True if array.
+isit.anArray(obj);
 
 /**
 False if item is an Array
 **/
-isit.notArray(obj); //True of not an array, undefined or null.
+isit.notArray(obj);
 
 /**
 True if item is a Boolean
 if primitiveOnly is false (default) then true only for primative/non-object boolean
 if primitiveOnly is true, then true for primative and object boolean
 **/
-isit.aBoolean(obj, primitiveOnly); //True if a boolean, if primitiveOnly false (default) then boolean primitives or boolean objects return true, if primitiveOnly true, then only boolean primitives return true
+isit.aBoolean(obj, primitiveOnly);
 
 /**
 False if item is a Boolean
 if primitiveOnly is false (default) then flase only for primative/non-object boolean
 if primitiveOnly is true, then false for primative and object boolean
 **/
-isit.notBoolean(obj, primitiveOnly); //The inverse of aBoolean.
+isit.notBoolean(obj, primitiveOnly);
 
 /**
 True if item is a function
 **/
-isit.aFunction (obj); //True if a function.
+isit.aFunction (obj);
 
 /**
 False if item is a function
 **/
-isit.notFunction (obj); //True if not a function.
+isit.notFunction (obj);
 
 /**
 True if item is a number
 **/
-isit.aNumber(obj); //True if a valid number.
+isit.aNumber(obj);
 
 /**
 False if item is a number
