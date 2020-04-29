@@ -1,4 +1,4 @@
-# Prose_isit
+# prose_isit
 
 Copyright (c) 2020 Seán D. Murray
 SEE MIT LICENSE FILE
